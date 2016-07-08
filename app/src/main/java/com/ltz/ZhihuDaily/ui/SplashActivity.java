@@ -1,7 +1,13 @@
 package com.ltz.ZhihuDaily.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -10,6 +16,8 @@ import com.ltz.ZhihuDaily.GlobalContants.AppConfig;
 import com.ltz.ZhihuDaily.NetInterface.SplashInterface;
 import com.ltz.ZhihuDaily.R;
 import com.ltz.ZhihuDaily.bean.SplashInfo;
+import com.ltz.ZhihuDaily.utils.MeasureUtils;
+import com.ltz.ZhihuDaily.utils.ToastUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.concurrent.TimeUnit;
@@ -36,6 +44,33 @@ public class SplashActivity extends Activity {
     TextView tvPicName;
     @BindView(R.id.rl_spalsh_bottom)
     RelativeLayout rlSpalshBottom;
+    @BindView(R.id.rl_spalsh_top)
+    RelativeLayout rlSpalshTop;
+
+    private static final int MSG_NET_ERROR = 0;
+    private static final int MSG_NEXT_PAGER = 1;
+    private static final int MSG_SHOW_PIC = 2;
+    private static final int DEFAULT_DELAY = 2000;
+
+    private Handler mHandler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_NET_ERROR:
+                    ToastUtils.showToastShort(SplashActivity.this, "网络错误");
+                    break;
+                case MSG_NEXT_PAGER:
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                    break;
+                case MSG_SHOW_PIC:
+                    initData();
+                    break;
+            }
+            return false;
+        }
+    });
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +78,10 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         initViews();
-        initData();
     }
 
     private void initData() {
+        final Message msg = mHandler.obtainMessage();
         OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
         okHttpBuilder.connectTimeout(5000, TimeUnit.SECONDS);
         Retrofit retrofit = new Retrofit.Builder()
@@ -67,6 +102,8 @@ public class SplashActivity extends Activity {
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
+                        msg.what = MSG_NET_ERROR;
+                        mHandler.sendMessageDelayed(msg, DEFAULT_DELAY);
                     }
 
                     @Override
@@ -75,12 +112,41 @@ public class SplashActivity extends Activity {
                         Picasso.with(SplashActivity.this)
                                 .load(splashInfo.getImg())
                                 .into(ivSplashPic);
+                        startAlphaAnimation();
                     }
                 });
 
     }
 
+    /**
+     * 底部文字位移动画
+     */
     private void initViews() {
+        int[] screenSize = MeasureUtils.getScreenSize(SplashActivity.this);
+        TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0f);
+        translateAnimation.setDuration(1500);
+        translateAnimation.setFillAfter(true);
+        rlSpalshBottom.startAnimation(translateAnimation);
 
+        //动画结束后  开始顶部图片的动画
+        Message msg = mHandler.obtainMessage();
+        msg.what = MSG_SHOW_PIC;
+        mHandler.sendMessageDelayed(msg, 1000);
+
+    }
+
+    /**
+     * 顶部图片透明度动画
+     */
+    private void startAlphaAnimation() {
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0f, 1f);
+        alphaAnimation.setDuration(2000);
+        alphaAnimation.setFillAfter(true);
+        rlSpalshTop.startAnimation(alphaAnimation);
+
+        Message msg = mHandler.obtainMessage();
+        msg.what = MSG_NEXT_PAGER;
+        mHandler.sendMessageDelayed(msg, DEFAULT_DELAY);
     }
 }
