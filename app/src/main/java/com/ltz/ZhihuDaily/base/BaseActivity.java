@@ -1,10 +1,10 @@
 package com.ltz.ZhihuDaily.base;
 
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
 import com.ltz.ZhihuDaily.R;
@@ -13,7 +13,7 @@ import com.ltz.ZhihuDaily.utils.SystemBarTintManager;
 /**
  * Created by Qloop on 2016/7/4.
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     public static final String TAG = "BaseActivity";
     private SystemBarTintManager systemBarTintManager;

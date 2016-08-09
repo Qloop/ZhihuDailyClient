@@ -2,4 +2,10 @@
     <string name="app_name">ZhihuDailyClient</string>
     <string name="Zhihu">知乎日报</string>
     <string name="splash_title">每天三次,每次七分钟</string>
+    <string name="main_word">首页</string>
+    <string name="sign_up_msg">请登录</string>
+    <string name="myCollection">我的收藏</string>
+    <string name="download">离线下载</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
 </resources>
