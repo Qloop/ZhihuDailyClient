@@ -8,4 +8,8 @@
     <string name="download">离线下载</string>
     <string name="open">OPEN</string>
     <string name="close">CLOSE</string>
+    <string name="action_notification">消息</string>
+    <string name="action_string">设置</string>
+    <string name="action_night_module">夜间模式</string>
+    <string name="action_setting_choice">设置选项</string>
 </resources>

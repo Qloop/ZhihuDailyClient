@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.MainActivity">
+
+    <item
+        android:id="@+id/action_notification"
+        android:title="@string/action_notification"
+        android:orderInCategory="80"
+        android:icon="@drawable/topbar_sign_up"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_night_model"
+        android:title="@string/action_night_module"
+        android:orderInCategory="90"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_setting_choice"
+        android:title="@string/action_setting_choice"
+        android:orderInCategory="110"
+        app:showAsAction="never"/>
+</menu>

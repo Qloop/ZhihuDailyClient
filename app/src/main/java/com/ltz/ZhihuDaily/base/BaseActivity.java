@@ -5,9 +5,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.WindowManager;
 
 import com.ltz.ZhihuDaily.R;
+import com.ltz.ZhihuDaily.ui.PrefUtils;
 import com.ltz.ZhihuDaily.utils.SystemBarTintManager;
 
 /**
@@ -17,10 +19,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public static final String TAG = "BaseActivity";
     private SystemBarTintManager systemBarTintManager;
+
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
@@ -32,7 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /*
     * transparent status bar
     * */
-    public void initTransparentStatusBar(){
+    public void initTransparentStatusBar() {
         systemBarTintManager = new SystemBarTintManager(this);
         systemBarTintManager.setStatusBarTintEnabled(true);
         systemBarTintManager.setNavigationBarTintEnabled(true);
@@ -42,5 +45,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public abstract void initView(Bundle savedInstanceState);
+
     public abstract void initData();
+
+    public void reSetMode() {
+        boolean isNightMode = PrefUtils.getBoolean(this, "isNightMode", false);
+        if (isNightMode) {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        recreate();
+    }
 }

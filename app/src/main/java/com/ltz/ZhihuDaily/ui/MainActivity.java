@@ -1,11 +1,16 @@
 package com.ltz.ZhihuDaily.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -74,11 +79,49 @@ public class MainActivity extends AppCompatActivity {
         };
         mDrawerToggle.syncState();
         drawerlayout.addDrawerListener(mDrawerToggle);
+        Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_notification:
+                        startActivity(new Intent(MainActivity.this,NotificationActivity.class));
+                        break;
+                    case R.id.action_night_model:
+                        reSetMode();
+                        break;
+                    case R.id.action_setting_choice:
+                        startActivity(new Intent(MainActivity.this,SettingActivity.class));
+                        break;
+                }
+                return true;
+            }
+        };
+        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
+    }
+
+    private void reSetMode() {
+        boolean isNightMode = PrefUtils.getBoolean(MainActivity.this, "isNightMode", false);
+        if(isNightMode){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        recreate();
     }
 
 
     private void initData() {
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main,menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
 
 }

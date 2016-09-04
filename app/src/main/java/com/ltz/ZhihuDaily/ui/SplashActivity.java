@@ -58,6 +58,7 @@ public class SplashActivity extends Activity {
             switch (msg.what) {
                 case MSG_NET_ERROR:
                     ToastUtils.showToastShort(SplashActivity.this, "网络错误");
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
                     break;
                 case MSG_NEXT_PAGER:
                     startActivity(new Intent(SplashActivity.this, MainActivity.class));
