@@ -14,10 +14,10 @@
         android:id="@+id/action_night_model"
         android:title="@string/action_night_module"
         android:orderInCategory="90"
-        app:showAsAction="never"/>
+        app:showAsAction="collapseActionView"/>
     <item
         android:id="@+id/action_setting_choice"
         android:title="@string/action_setting_choice"
         android:orderInCategory="110"
-        app:showAsAction="never"/>
+        app:showAsAction="collapseActionView"/>
 </menu>

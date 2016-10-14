@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/colorBlue"
+        android:background="@color/colorMain"
         android:orientation="vertical">
 
         <LinearLayout
@@ -115,7 +115,7 @@
             android:layout_gravity="center_vertical"
             android:padding="10dp"
             android:text="@string/main_word"
-            android:textColor="@color/colorBlue"
+            android:textColor="#56abe4"
             android:textSize="16sp" />
     </LinearLayout>
 

@@ -40,7 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         systemBarTintManager.setStatusBarTintEnabled(true);
         systemBarTintManager.setNavigationBarTintEnabled(true);
         systemBarTintManager.setTintColor(0);
-        final Drawable drawable = ContextCompat.getDrawable(this, R.color.colorBlue);
+        final Drawable drawable = ContextCompat.getDrawable(this, R.color.colorMain);
         systemBarTintManager.setStatusBarTintDrawable(drawable);
     }
 
@@ -48,11 +48,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public abstract void initData();
 
-    public void reSetMode() {
+    public void setMode() {
         boolean isNightMode = PrefUtils.getBoolean(this, "isNightMode", false);
         if (isNightMode) {
+            PrefUtils.setBoolean(this, "isNightMode", false);
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         } else {
+            PrefUtils.setBoolean(this, "isNightMode", true);
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
         recreate();

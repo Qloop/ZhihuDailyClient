@@ -11,7 +11,7 @@ import com.ltz.ZhihuDaily.base.BaseActivity;
 public class NotificationActivity extends BaseActivity {
     @Override
     public void initView(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_notification);
     }
 
     @Override

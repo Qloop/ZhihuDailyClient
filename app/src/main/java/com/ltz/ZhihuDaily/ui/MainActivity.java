@@ -84,13 +84,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_notification:
-                        startActivity(new Intent(MainActivity.this,NotificationActivity.class));
+                        startActivity(new Intent(MainActivity.this, NotificationActivity.class));
                         break;
                     case R.id.action_night_model:
                         reSetMode();
                         break;
                     case R.id.action_setting_choice:
-                        startActivity(new Intent(MainActivity.this,SettingActivity.class));
+                        startActivity(new Intent(MainActivity.this, SettingActivity.class));
                         break;
                 }
                 return true;
@@ -101,9 +101,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void reSetMode() {
         boolean isNightMode = PrefUtils.getBoolean(MainActivity.this, "isNightMode", false);
-        if(isNightMode){
+        if (isNightMode) {
+            PrefUtils.setBoolean(MainActivity.this,"isNightMode",false);
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }else {
+        } else {
+            PrefUtils.setBoolean(MainActivity.this,"isNightMode",true);
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
         recreate();
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main,menu);
+        inflater.inflate(R.menu.menu_main, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
