@@ -7,8 +7,10 @@
     <color name="colorMain">#222222</color>
     <color name="colorGray">#8D8D8D</color>
     <color name="colorBlack">#2B2B2B</color>
-    <color name="colorGrayWhite">#222222</color>
+    <color name="colorGrayWhite">#2B2B2B</color>
     <color name="colorBG">#343434</color>
     <color name="colorItemBG">#404040</color>
     <color name="colorWord">#DDDDDD</color>
+    <color name="colorDrawerItemWord">#666666</color>
+    <color name="colorDrawerWord">#666666</color>
 </resources>

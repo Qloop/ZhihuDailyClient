@@ -1,4 +1,4 @@
-package com.ltz.ZhihuDaily.ui;
+package com.ltz.ZhihuDaily.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.view.WindowManager;
 
 import com.ltz.ZhihuDaily.R;
-import com.ltz.ZhihuDaily.ui.PrefUtils;
+import com.ltz.ZhihuDaily.utils.PrefUtils;
 import com.ltz.ZhihuDaily.utils.SystemBarTintManager;
 
 /**

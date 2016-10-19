@@ -3,7 +3,7 @@ package com.ltz.ZhihuDaily;
 import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
 
-import com.ltz.ZhihuDaily.ui.PrefUtils;
+import com.ltz.ZhihuDaily.utils.PrefUtils;
 
 /**
  * Created by Qloop on 2016/8/21.

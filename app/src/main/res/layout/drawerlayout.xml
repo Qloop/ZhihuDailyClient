@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="@string/sign_up_msg"
-                android:textColor="@android:color/white"
+                android:textColor="@color/colorDrawerWord"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -64,7 +64,7 @@
                     android:layout_gravity="center_vertical"
                     android:padding="5dp"
                     android:text="@string/myCollection"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/colorDrawerWord"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -88,7 +88,7 @@
                     android:layout_gravity="center_vertical"
                     android:padding="5dp"
                     android:text="@string/download"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/colorDrawerWord"
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
@@ -119,8 +119,8 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/lv_menu"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recy_menu"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"

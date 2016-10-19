@@ -11,4 +11,6 @@
     <color name="colorBG">#F3F3F3</color>
     <color name="colorItemBG">#FFFFFF</color>
     <color name="colorWord">#121212</color>
+    <color name="colorDrawerItemWord">#121212</color>
+    <color name="colorDrawerWord">#FFFFFF</color>
 </resources>
