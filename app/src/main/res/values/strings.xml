@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ZhihuDailyClient</string>
+    <string name="app_name">Qloop日报</string>
     <string name="Zhihu">知乎日报</string>
     <string name="splash_title">每天三次,每次七分钟</string>
     <string name="main_word">首页</string>

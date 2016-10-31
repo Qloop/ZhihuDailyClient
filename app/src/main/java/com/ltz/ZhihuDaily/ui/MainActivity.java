@@ -175,13 +175,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
+//        LayoutInflater layoutInflater = getLayoutInflater().cloneInContext(this);
+//        LayoutInflaterCompat.setFactory(layoutInflater, new LayoutInflaterFactory() {
+//            @Override
+//            public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
+//                if(name.equalsIgnoreCase("com.android.internal.view.menu.IconMenuItemView")
+//                        || name.equalsIgnoreCase("com.android.internal.view.menu.ActionMenuItemView")
+//                        || name.equalsIgnoreCase("ActionMenuItemView")
+//                        || name.equalsIgnoreCase("TextView")){
+//                    LayoutInflater from = LayoutInflater.from(context);
+//                    AppCompatDelegate delegate = getDelegate();
+//                    View view = delegate.createView(parent, name, context, attrs);
+//                    if(view != null && view instanceof TextView){
+//                        ((TextView) view).setTextColor(Color.GREEN);
+//                    }
+//                    return view;
+////                    try {
+////                        View view = from.createView(name, null, attrs);
+////                        if(view instanceof TextView){
+//////                            ((TextView) view).setTextColor(getResources().getColor(R.color.colorBlack));
+////                            ((TextView) view).setTextColor(Color.GREEN);
+////                        }
+////                        return view;
+////                    } catch (ClassNotFoundException e) {
+////                        e.printStackTrace();
+////                    }
+//                }
+//                return null;
+//            }
+//        });
+
         inflater.inflate(R.menu.menu_main, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
-
 
 }

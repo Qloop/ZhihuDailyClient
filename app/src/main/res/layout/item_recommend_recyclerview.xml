@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorItemBG"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        app:cardElevation="8dp"
+        app:cardCornerRadius="4dp"
+        android:id="@+id/cv_item_recommend"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_item_title"
+                tools:text="神啊，赐我一个异性吧"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textSize="16sp"
+                android:textColor="@color/colorBlack"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_gravity="end"
+                android:id="@+id/iv_item_img"
+                android:src="@drawable/collect"
+                android:layout_width="100dp"
+                android:layout_height="80dp" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

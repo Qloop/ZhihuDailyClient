@@ -24,8 +24,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.MyPopTheme" parent="ThemeOverlay.AppCompat.Light">
-        <!--<item name="actionMenuTextColor">#f00</item>-->
-        <!--<item name="android:colorBackground"></item>-->
-    </style>
+    <!--<style name="AppTheme.MyPopTheme" parent="ThemeOverlay.AppCompat.Light">-->
+        <!--&lt;!&ndash;<item name="actionMenuTextColor">#f00</item>&ndash;&gt;-->
+        <!--<item name="android:colorBackground">#212121</item>-->
+    <!--</style>-->
 </resources>
