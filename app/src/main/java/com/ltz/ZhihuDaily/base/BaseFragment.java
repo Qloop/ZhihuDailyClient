@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  */
 public abstract class BaseFragment extends Fragment {
 
-    private Activity mActivity;
+    public Activity mActivity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,11 +40,11 @@ public abstract class BaseFragment extends Fragment {
     public abstract View initViews();
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        destory();
+    public void onDestroyView() {
+        super.onDestroyView();
+        destroy();
     }
 
-    /*强制子类实现  做销毁处理*/
-    public abstract void destory();
+    /*强制子类实现  做销毁解绑处理*/
+    public abstract void destroy();
 }

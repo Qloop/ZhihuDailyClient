@@ -1,5 +1,7 @@
 package com.ltz.ZhihuDaily.ui;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import com.ltz.ZhihuDaily.NetInterface.ThemeDrawerInterface;
 import com.ltz.ZhihuDaily.R;
 import com.ltz.ZhihuDaily.adapter.DrawerAdapter;
 import com.ltz.ZhihuDaily.bean.ThemeListInfo;
+import com.ltz.ZhihuDaily.fragment.RecommendFragment;
 import com.ltz.ZhihuDaily.utils.PrefUtils;
 import com.ltz.ZhihuDaily.views.CircleImageView;
 
@@ -127,15 +130,24 @@ public class MainActivity extends AppCompatActivity {
         recyMenu.setLayoutManager(linearLayoutManager);
         recyMenu.setItemAnimator(new DefaultItemAnimator());
 
+        setDefaultFragment();  //设置默认的显示页(默认首页推荐内容)
+    }
+
+    private void setDefaultFragment() {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        RecommendFragment recommendFragment = new RecommendFragment();
+        transaction.replace(R.id.content, recommendFragment);
+        transaction.commit();
     }
 
     private void reSetMode() {
         boolean isNightMode = PrefUtils.getBoolean(MainActivity.this, "isNightMode", false);
         if (isNightMode) {
-            PrefUtils.setBoolean(MainActivity.this,"isNightMode",false);
+            PrefUtils.setBoolean(MainActivity.this, "isNightMode", false);
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         } else {
-            PrefUtils.setBoolean(MainActivity.this,"isNightMode",true);
+            PrefUtils.setBoolean(MainActivity.this, "isNightMode", true);
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
         recreate();
@@ -167,8 +179,8 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(ThemeListInfo themeListInfo) {
-                        recyMenu.setAdapter(new DrawerAdapter(MainActivity.this,themeListInfo.getOthers()));
-                        //设置相应主题跳转
+                        recyMenu.setAdapter(new DrawerAdapter(MainActivity.this, themeListInfo.getOthers()));
+                        //设置相应主题跳转 。。。
                     }
                 });
 
@@ -176,40 +188,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-
         MenuInflater inflater = getMenuInflater();
-//        LayoutInflater layoutInflater = getLayoutInflater().cloneInContext(this);
-//        LayoutInflaterCompat.setFactory(layoutInflater, new LayoutInflaterFactory() {
-//            @Override
-//            public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
-//                if(name.equalsIgnoreCase("com.android.internal.view.menu.IconMenuItemView")
-//                        || name.equalsIgnoreCase("com.android.internal.view.menu.ActionMenuItemView")
-//                        || name.equalsIgnoreCase("ActionMenuItemView")
-//                        || name.equalsIgnoreCase("TextView")){
-//                    LayoutInflater from = LayoutInflater.from(context);
-//                    AppCompatDelegate delegate = getDelegate();
-//                    View view = delegate.createView(parent, name, context, attrs);
-//                    if(view != null && view instanceof TextView){
-//                        ((TextView) view).setTextColor(Color.GREEN);
-//                    }
-//                    return view;
-////                    try {
-////                        View view = from.createView(name, null, attrs);
-////                        if(view instanceof TextView){
-//////                            ((TextView) view).setTextColor(getResources().getColor(R.color.colorBlack));
-////                            ((TextView) view).setTextColor(Color.GREEN);
-////                        }
-////                        return view;
-////                    } catch (ClassNotFoundException e) {
-////                        e.printStackTrace();
-////                    }
-//                }
-//                return null;
-//            }
-//        });
-
         inflater.inflate(R.menu.menu_main, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
