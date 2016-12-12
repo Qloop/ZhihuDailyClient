@@ -33,7 +33,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private LayoutInflater mLayoutInflater;
     private List<LatestInfo.StoriesBean> mContentData;
     private List<LatestInfo.TopStoriesBean> mHeaderData;
-    private int mHeaderCount;
+    private int mHeaderCount = 1;
     private int mBottomCount;
 
     private interface OnItemClickListener {
@@ -130,10 +130,9 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             return new HeaderViewHolder(mLayoutInflater.inflate(R.layout.header_recyclerview, parent, false));
         } else if (viewType == ITEM_TYPE_CONTENT) {
             return new RecommendViewHolder(mLayoutInflater.inflate(R.layout.item_recommend_recyclerview, parent, false));
-        }
-//        else if (viewType == ITEM_TYPE_FOOTER) {
+        } else if (viewType == ITEM_TYPE_FOOTER) {
 //            return new BottomViewHolder(mLayoutInflater.inflate(R.layout.rv_footer, parent, false));
-//        }
+        }
         return null;
     }
 
@@ -141,7 +140,9 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
         if (holder instanceof HeaderViewHolder) {
-            ((HeaderViewHolder) holder).heardViewPager.setAdapter(new RecommendViewPagerAdapter(mHeaderData,mContext));
+            if(mHeaderData != null){
+                ((HeaderViewHolder) holder).heardViewPager.setAdapter(new RecommendViewPagerAdapter(mHeaderData,mContext));
+            }
             //设置时间。。。
 
             //设置item点击事件
@@ -160,8 +161,9 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     }
                 });
             }
-        } else if (holder instanceof RecommendViewHolder) {
-            LatestInfo.StoriesBean storiesBean = mContentData.get(position);
+        }
+        else if (holder instanceof RecommendViewHolder) {
+            LatestInfo.StoriesBean storiesBean = mContentData.get(position - mHeaderCount);
             ((RecommendViewHolder) holder).tvTitle.setText(storiesBean.getTitle());
             Picasso.with(mContext)
                     .load(storiesBean.getImages().get(0))

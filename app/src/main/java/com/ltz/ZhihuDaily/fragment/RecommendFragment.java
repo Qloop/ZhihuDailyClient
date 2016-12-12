@@ -1,14 +1,12 @@
 package com.ltz.ZhihuDaily.fragment;
 
-import android.os.Bundle;
+import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ltz.ZhihuDaily.GlobalContants.AppConfig;
@@ -44,9 +42,7 @@ public class RecommendFragment extends BaseFragment {
     RecyclerView mRecommendRecyclerView;
     @BindView(R.id.srl_recommend)
     SwipeRefreshLayout mRefreshView;
-    @BindView(R.id.vp_header)
     ViewPager vpHeader;
-    @BindView(R.id.tv_title)
     TextView tvTitle;
     private Unbinder unBinder;
     private Unbinder unBinderHeard;
@@ -56,15 +52,18 @@ public class RecommendFragment extends BaseFragment {
     public View initViews() {
         View view = View.inflate(mActivity, R.layout.fragment_main, null);
         View heardView = View.inflate(mActivity, R.layout.header_recyclerview, null);
-        unBinder = ButterKnife.bind(mActivity, view);
-        unBinderHeard = ButterKnife.bind(mActivity, heardView);
+        unBinder = ButterKnife.bind(this, view);
+//        unBinderHeard = ButterKnife.bind(this, heardView);
+        //butterknife不能绑定多个布局
+        vpHeader = (ViewPager) heardView.findViewById(R.id.vp_header);
+        tvTitle = (TextView) heardView.findViewById(R.id.tv_title);
 
         //设置首页展示列表RecyclerView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mActivity);
         mRecommendRecyclerView.setLayoutManager(linearLayoutManager);
         mRecommendRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mRefreshView.setColorSchemeColors(R.color.colorMain);
+        mRefreshView.setColorSchemeColors(new int[]{Color.parseColor("#56abe4")});
         mRefreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -103,7 +102,7 @@ public class RecommendFragment extends BaseFragment {
                     @Override
                     public void onNext(LatestInfo latestInfo) {
                         mRecommendRecyclerView.setAdapter(new RecommendAdapter(mActivity,
-                                latestInfo.getStories(),latestInfo.getTopStories()));
+                                latestInfo.getStories(), latestInfo.getTopStories()));
                         mRefreshView.setRefreshing(false);
                     }
                 });
@@ -112,14 +111,5 @@ public class RecommendFragment extends BaseFragment {
     @Override
     public void destroy() {
         unBinder.unbind();
-        unBinderHeard.unbind();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
     }
 }

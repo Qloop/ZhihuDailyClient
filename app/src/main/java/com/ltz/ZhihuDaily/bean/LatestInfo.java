@@ -9,30 +9,14 @@ import java.util.List;
 public class LatestInfo {
 
     /**
-     * date : 20161121
-     * stories : [{"images":["http://pic1.zhimg.com/0331a05adf03f40a72c2600d83dc6c8c.jpg"],"type":0,"id":8996096,"ga_prefix":"112122","title":"小事 · 世外高人"},{"images":["http://pic4.zhimg.com/f7b7d9d7497f96dd4497a60db64e63f7.jpg"],"type":0,"id":8998843,"ga_prefix":"112121","title":"一个名字，让不同时空的三个女人产生了联系"},{"images":["http://pic3.zhimg.com/93bb9b300867dce5fb9bfd05fd038aae.jpg"],"type":0,"id":8999247,"ga_prefix":"112120","title":"怎么有这么多种智力 / 性格测试，都靠谱吗？"},{"images":["http://pic3.zhimg.com/827850266444dfd515b955f87aef029e.jpg"],"type":0,"id":8998817,"ga_prefix":"112119","title":"认识一个更加真实和好玩儿的非洲，从乌干达开始"},{"images":["http://pic4.zhimg.com/e418265b7c6d274e3e2a0cae271898fb.jpg"],"type":0,"id":8998233,"ga_prefix":"112118","title":"经常开车，总得掌握一些汽车故障的应急小技巧"},{"images":["http://pic2.zhimg.com/79ad7a8cd1fd737786e7a78cc0a8126d.jpg"],"type":0,"id":8998520,"ga_prefix":"112117","title":"知乎好问题 · 有氧运动要超过一定时间才有减脂作用吗？"},{"title":"巴菲特斥巨资购入航空股，虽然曾经吃过大亏","ga_prefix":"112116","images":["http://pic3.zhimg.com/81c83339624777cc029ca016e301071a.jpg"],"multipic":true,"type":0,"id":8998224},{"images":["http://pic2.zhimg.com/3c1a97e7f43a0f3809a8d8436f976601.jpg"],"type":0,"id":8998008,"ga_prefix":"112115","title":"从孩子的角度，聊聊节目里的「实习爸爸」可能有什么影响"},{"images":["http://pic3.zhimg.com/e1abdf3737b980a2d3efe5c539811ff2.jpg"],"type":0,"id":8997469,"ga_prefix":"112114","title":"华为推荐的 Polar 码入选 5G 标准意味着什么？"},{"images":["http://pic1.zhimg.com/580831492b9895746ac52cdaffacc578.jpg"],"type":0,"id":8997436,"ga_prefix":"112113","title":"神舟十一号返回，航天员为什么没有自主出舱？"},{"images":["http://pic4.zhimg.com/b28b2be3d65be0769f7361c895e28837.jpg"],"type":0,"id":8997528,"ga_prefix":"112112","title":"大误 · 孟婆汤是什么味道的？"},{"images":["http://pic3.zhimg.com/4a1b4aaf55a53acc9d1d64c8870eaf02.jpg"],"type":0,"id":8995900,"ga_prefix":"112111","title":"不得不承认，有时候真的就是「运气问题」"},{"images":["http://pic4.zhimg.com/ac1f2ff3794bfaa924a323a9a8e97dcf.jpg"],"type":0,"id":8992610,"ga_prefix":"112110","title":"亲人刚刚被确诊了糖尿病，我能做些什么？"},{"images":["http://pic3.zhimg.com/74daa8db9912e469d9f2cade1b9994d2.jpg"],"type":0,"id":8984810,"ga_prefix":"112109","title":"就这样，大家都很理性，但歧视自发地产生了"},{"images":["http://pic1.zhimg.com/d45aa9cceeaf5e116ba997e41ff19538.jpg"],"type":0,"id":8996510,"ga_prefix":"112108","title":"刚入行时，我也担心「一不小心做了成功编剧怎么办？」"},{"images":["http://pic3.zhimg.com/45674d1487643238d3d1c1dac6f5f5c2.jpg"],"type":0,"id":8996342,"ga_prefix":"112107","title":"打制石器偷埋到古老地层里再假装发掘，这事儿真有人干过"},{"images":["http://pic3.zhimg.com/b39012cd5aff3e73cbb9b9a9fdf44d3a.jpg"],"type":0,"id":8993946,"ga_prefix":"112107","title":"为什么我煮的米饭不好吃？不都是放进电饭锅摁个开关吗？"},{"images":["http://pic3.zhimg.com/4b4e5a012ef4c5fcde8cf533c4abde7e.jpg"],"type":0,"id":8995955,"ga_prefix":"112107","title":"社交网络上的个性签名，其实是一场你来我往的暗战啊"},{"images":["http://pic2.zhimg.com/e292f582a3523b9a6986e150fe64d841.jpg"],"type":0,"id":8996298,"ga_prefix":"112107","title":"读读日报 24 小时热门 TOP 5 · 围观群众，误伤友军"},{"images":["http://pic2.zhimg.com/2428b9b240d2e0e5e446683c751fca45.jpg"],"type":0,"id":8996115,"ga_prefix":"112106","title":"瞎扯 · 如何正确地吐槽"}]
-     * top_stories : [{"image":"http://pic3.zhimg.com/ce435b27cf810d7c0cebc4dce87cc34a.jpg","type":0,"id":8998520,"ga_prefix":"112117","title":"知乎好问题 · 有氧运动要超过一定时间才有减脂作用吗？"},{"image":"http://pic2.zhimg.com/4097501370427d6eacd17888a3db9bed.jpg","type":0,"id":8998224,"ga_prefix":"112116","title":"巴菲特斥巨资购入航空股，虽然曾经吃过大亏"},{"image":"http://pic2.zhimg.com/e99d0c54dfef4a265e9e28a23b62741d.jpg","type":0,"id":8998008,"ga_prefix":"112115","title":"从孩子的角度，聊聊节目里的「实习爸爸」可能有什么影响"},{"image":"http://pic1.zhimg.com/80e53046d2334391d0f7d6db8be7e220.jpg","type":0,"id":8997469,"ga_prefix":"112114","title":"华为推荐的 Polar 码入选 5G 标准意味着什么？"},{"image":"http://pic4.zhimg.com/5798031c87a95280f7aab1343b21d60f.jpg","type":0,"id":8997436,"ga_prefix":"112113","title":"神舟十一号返回，航天员为什么没有自主出舱？"}]
+     * date : 20161212
+     * stories : [{"images":["http://pic2.zhimg.com/1e299a304e25ec49323855b437d5872d.jpg"],"type":0,"id":9059883,"ga_prefix":"121222","title":"小事 · 好吃到让人为难"},{"images":["http://pic3.zhimg.com/b5a2fe36c16e12b66a0e1405fdf3534e.jpg"],"type":0,"id":9057623,"ga_prefix":"121221","title":"他拍出过最温暖的一部电影\u2014\u2014电影大师弗兰克·卡普拉"},{"images":["http://pic4.zhimg.com/aee68e97fec420528ffe2745deda30cf.jpg"],"type":0,"id":9059636,"ga_prefix":"121220","title":"这些美好的地方，只有生活在纽约的人才知道"},{"images":["http://pic1.zhimg.com/02b0d1c764f11389a217c29b5bddacb0.jpg"],"type":0,"id":9059118,"ga_prefix":"121220","title":"音箱突然发出滋滋声，就知道手机要接着响了"},{"images":["http://pic3.zhimg.com/db5d4968b9f8d14df3829478ac009006.jpg"],"type":0,"id":9057947,"ga_prefix":"121218","title":"演示视频是特效？Magic Leap 是有问题但还没这么烂"},{"images":["http://pic3.zhimg.com/5447a45f0ebd8f48f08ebab71f28ed62.jpg"],"type":0,"id":9059028,"ga_prefix":"121217","title":"知乎好问题 · 经济越发展，越难「寒门出贵子」吗？"},{"images":["http://pic3.zhimg.com/42a8fc2f08595c3771961e0d1379447a.jpg"],"type":0,"id":9058633,"ga_prefix":"121216","title":"把 CPU 主频降低一点，再低一点，会发生什么？"},{"images":["http://pic3.zhimg.com/485cde7a18d65b296551e1a5d386be8a.jpg"],"type":0,"id":9056986,"ga_prefix":"121215","title":"冬天跑步，你得小心感冒"},{"images":["http://pic3.zhimg.com/4e7e6a6322f747cee66c5592e6366d36.jpg"],"type":0,"id":9056901,"ga_prefix":"121214","title":"为什么会有同性恋？先来看看果蝇"},{"images":["http://pic3.zhimg.com/f57443373a1e0be2a82f235782a1bf72.jpg"],"type":0,"id":9057963,"ga_prefix":"121213","title":"校园霸凌，总是比我们想象的更加严重"},{"images":["http://pic1.zhimg.com/b1baf114e6e6c2b6df70e9257f9490ec.jpg"],"type":0,"id":9057953,"ga_prefix":"121212","title":"大误 · 巫妖团其实是少女团"},{"title":"对于体育记者，看球真的只是工作中很小的一部分","ga_prefix":"121211","images":["http://pic1.zhimg.com/e10d1fe26164cc139b01eb51189b882c.jpg"],"multipic":true,"type":0,"id":8382748},{"images":["http://pic1.zhimg.com/128cadad11820dae958e5f27680c81f8.jpg"],"type":0,"id":9055765,"ga_prefix":"121210","title":"如果彗星碎片撞击地面，真会像《你的名字。》中那样吗？"},{"images":["http://pic1.zhimg.com/bfb1091b8f056108261ad9d20c82f14c.jpg"],"type":0,"id":9057006,"ga_prefix":"121209","title":"这种「适合学生和懒人的理财方式」，真有那么好吗？"},{"images":["http://pic4.zhimg.com/64f3c70f0f18b7b6815e6f3067e21aa3.jpg"],"type":0,"id":9057053,"ga_prefix":"121208","title":"别还以为细菌就是「低等生物」，教科书都快要改了"},{"images":["http://pic1.zhimg.com/19bc6f96d4e64e6de61ae15323b97210.jpg"],"type":0,"id":9056989,"ga_prefix":"121207","title":"孩子又哭又闹，不买不走，家长该怎么办？"},{"images":["http://pic4.zhimg.com/663c6be26fdfefdc6a973f3dfb721acb.jpg"],"type":0,"id":9056028,"ga_prefix":"121207","title":"回到法律，捋一捋这次「乔丹」商标纠纷"},{"images":["http://pic3.zhimg.com/6a37b6787fe681c3026c16a146703316.jpg"],"type":0,"id":9056905,"ga_prefix":"121207","title":"谁为在线成人内容付费？"},{"images":["http://pic4.zhimg.com/681a829b7930f66eace51f5bcd5f6f53.jpg"],"type":0,"id":9057159,"ga_prefix":"121207","title":"读读日报 24 小时热门 TOP 5 · 12G 用户数据外泄"},{"images":["http://pic2.zhimg.com/a1a7bc498fc1d949839eeb7fb4d40551.jpg"],"type":0,"id":9057189,"ga_prefix":"121206","title":"瞎扯 · 如何正确地吐槽"},{"images":["http://pic3.zhimg.com/81ca37724ec349b4967553b98c94f1ae.jpg"],"type":0,"id":9051904,"ga_prefix":"121206","title":"这里是广告 · 致即将谋面的主人：您的座驾来报到了"}]
+     * top_stories : [{"image":"http://pic2.zhimg.com/9a8990a3f4b3828478cd0c9cd1ffa721.jpg","type":0,"id":9059028,"ga_prefix":"121217","title":"知乎好问题 · 经济越发展，越难「寒门出贵子」吗？"},{"image":"http://pic2.zhimg.com/e32f7b8f0288b94ff04c2ea6dc1cc4e5.jpg","type":0,"id":9056901,"ga_prefix":"121214","title":"为什么会有同性恋？先来看看果蝇"},{"image":"http://pic3.zhimg.com/c53d82cfc3c77136ad6ee93aab7c3b5a.jpg","type":0,"id":9057963,"ga_prefix":"121213","title":"校园霸凌，总是比我们想象的更加严重"},{"image":"http://pic1.zhimg.com/abbcbee1ccb93d7bdc725b1d6a4bcb08.jpg","type":0,"id":9057006,"ga_prefix":"121209","title":"这种「适合学生和懒人的理财方式」，真有那么好吗？"},{"image":"http://pic1.zhimg.com/bd4cd041e9c8eae6d57743e36311e2a0.jpg","type":0,"id":9057159,"ga_prefix":"121207","title":"读读日报 24 小时热门 TOP 5 · 12G 用户数据外泄"}]
      */
 
     private String date;
-    /**
-     * images : ["http://pic1.zhimg.com/0331a05adf03f40a72c2600d83dc6c8c.jpg"]
-     * type : 0
-     * id : 8996096
-     * ga_prefix : 112122
-     * title : 小事 · 世外高人
-     */
-
     private List<StoriesBean> stories;
-    /**
-     * image : http://pic3.zhimg.com/ce435b27cf810d7c0cebc4dce87cc34a.jpg
-     * type : 0
-     * id : 8998520
-     * ga_prefix : 112117
-     * title : 知乎好问题 · 有氧运动要超过一定时间才有减脂作用吗？
-     */
-
-    private List<TopStoriesBean> topStories;
+    private List<TopStoriesBean> top_stories;
 
     public String getDate() {
         return date;
@@ -51,18 +35,28 @@ public class LatestInfo {
     }
 
     public List<TopStoriesBean> getTopStories() {
-        return topStories;
+        return top_stories;
     }
 
     public void setTopStories(List<TopStoriesBean> topStories) {
-        this.topStories = topStories;
+        this.top_stories = topStories;
     }
 
     public static class StoriesBean {
+        /**
+         * images : ["http://pic2.zhimg.com/1e299a304e25ec49323855b437d5872d.jpg"]
+         * type : 0
+         * id : 9059883
+         * ga_prefix : 121222
+         * title : 小事 · 好吃到让人为难
+         * multipic : true
+         */
+
         private int type;
         private int id;
-        private String gaPrefix;
+        private String ga_prefix;
         private String title;
+        private boolean multipic;
         private List<String> images;
 
         public int getType() {
@@ -81,12 +75,12 @@ public class LatestInfo {
             this.id = id;
         }
 
-        public String getGaPrefix() {
-            return gaPrefix;
+        public String getGa_prefix() {
+            return ga_prefix;
         }
 
-        public void setGaPrefix(String gaPrefix) {
-            this.gaPrefix = gaPrefix;
+        public void setGa_prefix(String ga_prefix) {
+            this.ga_prefix = ga_prefix;
         }
 
         public String getTitle() {
@@ -95,6 +89,14 @@ public class LatestInfo {
 
         public void setTitle(String title) {
             this.title = title;
+        }
+
+        public boolean isMultipic() {
+            return multipic;
+        }
+
+        public void setMultipic(boolean multipic) {
+            this.multipic = multipic;
         }
 
         public List<String> getImages() {
@@ -107,10 +109,18 @@ public class LatestInfo {
     }
 
     public static class TopStoriesBean {
+        /**
+         * image : http://pic2.zhimg.com/9a8990a3f4b3828478cd0c9cd1ffa721.jpg
+         * type : 0
+         * id : 9059028
+         * ga_prefix : 121217
+         * title : 知乎好问题 · 经济越发展，越难「寒门出贵子」吗？
+         */
+
         private String image;
         private int type;
         private int id;
-        private String gaPrefix;
+        private String ga_prefix;
         private String title;
 
         public String getImage() {
@@ -137,12 +147,12 @@ public class LatestInfo {
             this.id = id;
         }
 
-        public String getGaPrefix() {
-            return gaPrefix;
+        public String getGa_prefix() {
+            return ga_prefix;
         }
 
-        public void setGaPrefix(String gaPrefix) {
-            this.gaPrefix = gaPrefix;
+        public void setGa_prefix(String ga_prefix) {
+            this.ga_prefix = ga_prefix;
         }
 
         public String getTitle() {

@@ -53,18 +53,19 @@ public class RecommendViewPagerAdapter extends PagerAdapter {
         }
         ImageView imageView = (ImageView) rootView.findViewById(R.id.iv_item_img);
         TextView textView = (TextView) rootView.findViewById(R.id.tv_item_title);
+        textView.setText(mData.get(position).getTitle());
         Picasso.with(mContext)
                 .load(mData.get(position).getImage())
                 .into(imageView);
-        container.addView(container);
+        container.addView(rootView);
         return rootView;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
-        if(object != null){
-            mViewCache.addLast((View) object);
-        }
+//        if(object != null){
+//            mViewCache.addLast((View) object);
+//        }
     }
 }
